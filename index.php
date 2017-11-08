@@ -57,15 +57,15 @@
     
 
     <!-- 引入 -->
-   <?php include './common/script.html' ?>
     
-        
+
+   <?php include './common/script.html'; ?>
          
     
 
     <script>
         require(['src/index']);
-        
+    
        
         // 因为这一块代码是每个页面都要执行一次所以分成模块
     

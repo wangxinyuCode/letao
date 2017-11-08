@@ -1,18 +1,28 @@
 define(['jquery'],function($){
-	 $('form').on('submit',function(){
-            var dataForm = $(this).serialize();
-            $.ajax({
-            url:'/api/employee/employeeLogin',
-            type:'post',
-            data:dataForm,
-            success:function(info){
-                if (info.error) {
-                    return alert(info.message);
-                }
-                location.href = '/';
+    $.ajax({
+        url:'/api/employee/checkRootLogin',
+        type:'get',
+       
+        success:function(info){
+            if (info.error) {
+                location.href = '/login.html'
             }
-                    })
+        }
+       });
+    
+	
+     $('.ext').on('click',function(){
+            $.ajax({
+                url:'/api/employee/employeeLogout',
+                type:'get',
+                
+                success:function(info){
+                    if (info.success) {
+                        location.href = '/login.html'
+                    }
 
+                }
+            })
             return false;
-        })
+        });
 })
